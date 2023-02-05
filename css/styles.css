@@ -242,8 +242,9 @@ border-radius: 4px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50% ,-50%);
-    
+    transform: translate(-50% ,-50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     min-width: 408px;
     min-height: 576px;
     
@@ -269,10 +270,23 @@ border-radius: 4px;
     align-items: center;
 }
 
+.modal-button:hover,
+.modal-button:focus{
+background-color: #404BBF;
+}
+
+.modal-button:hover .modal-icons,
+.modal-button:focus .modal-icons{
+    fill: #FFFFFF;
+}
 .backdrop.is-hidden{
     opacity: 0;
     pointer-events: none;
 } 
+
+.backdrop.is-hidden .modal{
+    transform: translate(-50% ,-50%) scale(1.1);
+}
 
 /* button */
 .main-button {
@@ -307,9 +321,12 @@ border-radius: 4px;
     color: #4D5AE5;
     background-color: var(--gray);
     padding: 12px 24px;
-     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) ,
+    border-radius: 4px;
+    border: 1px solid #E7E9FC; 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) ,
      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);;
     
     
 }
@@ -318,7 +335,7 @@ border-radius: 4px;
     color: var(--white);
     background-color: var(--logo-blue);
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-    border-radius: 4px;
+    border-color: var(--logo-blue);
 }
 
 /* doing */
@@ -406,6 +423,7 @@ border-radius: 4px;
 
 .team-description{
     color: var(--light-black);
+    margin-bottom: 8px;
 }
 
 .team .list-header{
@@ -417,7 +435,7 @@ border-radius: 4px;
     display: flex;
     justify-content: center;
     gap: 24px;
-    padding: 8px 16px;
+    padding: 0px 16px;
 }
 .socials-link{
     display: flex;
@@ -502,7 +520,7 @@ border-radius: 4px;
 .link-gallery:hover .gallery-actions,
 .link-gallery:focus .gallery-actions{
     top: 0;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .description-photo{
